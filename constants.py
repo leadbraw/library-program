@@ -68,6 +68,10 @@ GROUP BY B.Title
 ORDER BY TotalCheckouts DESC;
 '''
 
+SCENARIO6B = '''
+SELECT COUNT(*) AS OverdueCheckouts FROM CHECKOUTS WHERE Status = 'Overdue';
+'''
+
 SCENARIO7 = '''
 SELECT C.CheckoutID, P.FirstName, P.LastName, B.Title, BC.CopyID, C.Status, PE.Amount, PE.Status AS PenaltyStatus
 FROM CHECKOUTS C

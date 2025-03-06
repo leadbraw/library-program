@@ -62,6 +62,7 @@ def display_data():
             query = SCENARIO5
         case 's6':
             query = SCENARIO6
+            query2 = SCENARIO6B
         case 's7':
             query = SCENARIO7
         case 'a1':
@@ -80,6 +81,12 @@ def display_data():
     for row in rows:
         listbox.insert(tk.END, row)
     listbox.insert(tk.END, '---------------------------------------')
+    if query2: # Necessary to show the second query of scenario 6. A bit redundant but whatever.
+        rows, col_names = fetch_data(query2)
+        listbox.insert(tk.END, col_names)
+        for row in rows:
+            listbox.insert(tk.END, row)
+        listbox.insert(tk.END, '---------------------------------------')
 
 def display_help():
     messagebox.showinfo("Query/Scenario Reference", HELP_MSG)
@@ -101,29 +108,29 @@ button_frame.pack(side=tk.BOTTOM, fill=tk.BOTH, expand=True)
 
 # Making all the buttons, I didn't bother to  make this pretty.
 s1_button = tk.Radiobutton(button_frame, text="scenario1", value='s1', variable=choice)
-s1_button.grid(row=0, column = 0)
+s1_button.grid(row=0, column=0)
 s2_button = tk.Radiobutton(button_frame, text="scenario2", value='s2', variable=choice)
-s2_button.grid(row=0, column = 1)
+s2_button.grid(row=0, column=1)
 s3_button = tk.Radiobutton(button_frame, text="scenario3", value='s3', variable=choice)
-s3_button.grid(row=0, column = 2)
+s3_button.grid(row=0, column=2)
 s4_button = tk.Radiobutton(button_frame, text="scenario4", value='s4', variable=choice)
-s4_button.grid(row=0, column = 3)
+s4_button.grid(row=0, column=3)
 s5_button = tk.Radiobutton(button_frame, text="scenario5", value='s5', variable=choice)
-s5_button.grid(row=0, column = 4)
+s5_button.grid(row=0, column=4)
 s6_button = tk.Radiobutton(button_frame, text="scenario6", value='s6', variable=choice)
-s6_button.grid(row=0, column = 5)
+s6_button.grid(row=0, column=5)
 s7_button = tk.Radiobutton(button_frame, text="scenario7", value='s7', variable=choice)
-s7_button.grid(row=0, column = 6)
+s7_button.grid(row=0, column=6)
 a1_button = tk.Radiobutton(button_frame, text="analytical1", value='a1', variable=choice)
-a1_button.grid(row=1, column = 0)
+a1_button.grid(row=1, column=0)
 a2_button = tk.Radiobutton(button_frame, text="analytical2", value='a2', variable=choice)
-a2_button.grid(row=1, column = 1)
+a2_button.grid(row=1, column=1)
 a3_button = tk.Radiobutton(button_frame, text="analytical3", value='a3', variable=choice)
-a3_button.grid(row=1, column = 2)
+a3_button.grid(row=1, column=2)
 a4_button = tk.Radiobutton(button_frame, text="analytical4", value='a4', variable=choice)
-a4_button.grid(row=1, column = 3)
+a4_button.grid(row=1, column=3)
 a5_button = tk.Radiobutton(button_frame, text="analytical5", value='a5', variable=choice)
-a5_button.grid(row=1, column = 4)
+a5_button.grid(row=1, column=4)
 confirm_button = tk.Button(root, text="Fetch Data", command=display_data)
 confirm_button.pack(padx=5, pady=5, side=tk.LEFT)
 help_button = tk.Button(root, text="Query Reference", command=display_help)
