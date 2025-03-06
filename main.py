@@ -13,7 +13,9 @@ def create_connection():
         """Troubleshooting? Make sure you have the odbc driver installed (try running print(pyodbc.drivers)).
         Also make sure that you have enabled Named Pipes and TCP/IP connections on your server. Also make sure 
         the server name was properly copied. Also make sure the server is using Windows Authentication. If it isn't,
-        then replace the Trusted_Connection argument with username and password ones. Consult docs as needed."""
+        then replace the Trusted_Connection argument with username and password ones (your mileage may vary, I
+        recommend just using Windows Authentication, and making the current user an admin of the server during
+        creation). Consult docs as needed."""
         connection = pyodbc.connect(r'''
                                     DRIVER={ODBC Driver 17 for SQL Server};
                                     SERVER=DESKTOP-595A4VQ\LIBRARYSERVER;
