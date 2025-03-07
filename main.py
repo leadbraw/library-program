@@ -49,6 +49,7 @@ def display_data():
     """
     Determines which query to run on the database, calls fetch_data, and displays the data.
     """
+    query = query2 = None
     match choice.get():
         case 's1':
             query = SCENARIO1
